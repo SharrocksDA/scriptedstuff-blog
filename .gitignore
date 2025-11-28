@@ -1,0 +1,41 @@
+# Hugo output
+public/
+public-dev/
+resources/
+
+# Hugo build locks
+.hugo_build.lock
+
+# Node dependencies
+node_modules/
+package-lock.json
+
+# Next.js build output
+blog-next/.next/
+blog-next/out/
+
+# Editor + system clutter
+.DS_Store
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Certs and secrets
+certs/
+*.key
+*.crt
+*.pem
+*.ca-bundle
+update-namecheap-ddns.sh
+
+# Deployment scripts with sensitive info
+blog-next/deploy.sh
+
+# Docker secrets, volumes, etc (if applicable)
+docker-compose.override.yml
+.env
+.env.*
+
+# Misc
+*.log

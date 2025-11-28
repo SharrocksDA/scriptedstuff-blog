@@ -1,0 +1,45 @@
+{
+  "name": "scriptedstuff-blog",
+  "version": "1.0.0",
+  "description": "Modern technical blog built with Next.js, TypeScript, and Docker",
+  "author": "David Sharrocks",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SharrocksDA/scriptedstuff-blog"
+  },
+  "homepage": "https://scriptedstuff.dev",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "deploy": "./deploy.sh"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "^16.0.5",
+    "@types/mdx": "^2.0.13",
+    "date-fns": "^4.1.0",
+    "gray-matter": "^4.0.3",
+    "next": "16.0.5",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "react-markdown": "^10.1.0",
+    "rehype-highlight": "^7.0.2",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "baseline-browser-mapping": "^2.8.32",
+    "eslint": "^9",
+    "eslint-config-next": "16.0.5",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
