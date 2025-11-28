@@ -18,23 +18,16 @@ You’re also into Docker, because why not overcomplicate everything for the sak
 
 This guide shows you how to run **Pi-hole inside a Docker container** on your Raspberry Pi, using **Docker Compose** like a civilised nerd. We’ll also add **Portainer** if you like GUIs and clicking buttons while nodding thoughtfully.
 
----
-
 ## What You’ll Need  
-<div class="rpi-flex">
-  <ul>
-    <li>A Raspberry Pi (3 or 4 recommended, but anything that boots works)</li>
-    <li>Raspberry Pi OS Lite (because headless is best)</li>
-    <li>Static IP for your Pi (because DHCP is chaos)</li>
-    <li>Basic terminal kung fu</li>
-  </ul>
 
-  <div class="image-wrapper-rpi">
-    <img src="/images/rpi4.png" alt="Raspberry Pi 4 Model B">
-  </div>
+- A Raspberry Pi (3 or 4 recommended, but anything that boots works)
+- Raspberry Pi OS Lite (because headless is best)
+- Static IP for your Pi (because DHCP is chaos)
+- Basic terminal kung fu
+
+<div class="image-wrapper" style="text-align: center;">
+  <img src="/images/rpi4.png" alt="Raspberry Pi 4 Model B" style="max-width: 300px;">
 </div>
-
----
 
 ## Step 1: Update Your Pi (AKA: Don't Skip This Step)
 
@@ -44,7 +37,6 @@ sudo apt update && sudo apt upgrade -y
 
 Good. Responsible. Admired.
 
----
 
 ## Step 2: Install Docker + Docker Compose
 
@@ -73,7 +65,7 @@ Check it's alive:
 docker-compose --version
 ```
 
----
+
 
 ## Step 3: Set a Static IP for Your Pi
 
@@ -81,7 +73,7 @@ This part is critical. Pi-hole *must* have a static IP to reliably act as your D
 
 Edit your DHCP config or set a static IP on your router.
 
----
+
 
 ## Step 4: Write the Docker Compose File for Pi-hole
 
@@ -123,7 +115,7 @@ CTRL+X, Y, Enter to save and exit nano.
   <img src="/images/docker-compose_yaml_pi-hole.png" alt="Docker Compose yaml file with Pi-Hole Service">
 </div>
 
----
+
 
 ## Step 5: Deploy It Like a Boss
 
@@ -156,7 +148,7 @@ A sneak preview of my running Pi-Hole:
 <div class="image-wrapper-dashboard">
   <img src="/images/piholeDashboard.png" alt="Pi-Hole Dashboard Preview">
 </div>
----
+
 
 ## Step 6: Set Your Router’s DNS to the Pi
 
@@ -166,7 +158,7 @@ to get through your secondary, making all this a waste of time.
 
 Now all traffic from every device is filtered through your Pi-hole.
 
----
+
 
 ## Step 7: Blocklists, Because the Internet is a Filthy Place
 
@@ -187,7 +179,7 @@ To use them:
 
 For a good balance, start with their **“TICKED” green lists**. They block ads without breaking half the internet.
 
----
+
 
 ## Optional: Add Portainer for Fancy Management
 
@@ -226,7 +218,7 @@ http://<your-pi-ip>:9000
 
 Create an admin user and admire your containers with a GUI that screams *DevOps chic*.
 
----
+
 
 ## Troubleshooting Tips
 
@@ -234,7 +226,7 @@ Create an admin user and admire your containers with a GUI that screams *DevOps 
 - **DNS not working?** Make sure the container actually has port 53 mapped and is reachable.
 - **Logs on logs:** Run `docker logs pihole` or `docker logs portainer` to see what's happening inside the containers.
 
----
+
 
 ## Final Thoughts
 
