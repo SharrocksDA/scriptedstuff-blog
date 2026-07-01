@@ -64,7 +64,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           rehypePlugins={[rehypeRaw, rehypeHighlight]}
           components={{
             // Customize rendering if needed
-            img: ({ node, ...props }) => (
+            img: (props) => (
               // eslint-disable-next-line @next/next/no-img-element
               <img {...props} alt={props.alt || ""} className="rounded-lg" />
             ),
