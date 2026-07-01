@@ -32,10 +32,10 @@ export default function RootLayout({
       >
         <header className="border-b border-gray-700">
           <div className="container mx-auto px-4 py-8">
-            <div className="flex flex-col items-center gap-6">
+            <div className="flex flex-col items-center gap-1">
               <Link href="/" className="flex flex-col items-center gap-3 hover:opacity-80 transition-opacity">
-                <Image src="/images/scriptedStuff.png" alt="ScriptedStuff Logo" width={128} height={128} priority />
-                <span className="text-3xl font-bold text-white">ScriptedStuff</span>
+                <Image src="/images/scriptedStuff.png" alt="ScriptedStuff Logo" width={256} height={256} priority />
+                {/* <span className="text-3xl font-bold text-white">ScriptedStuff</span> */}
               </Link>
               <nav className="flex space-x-8">
                 <Link href="/" className="hover:underline text-gray-300 hover:text-white">
