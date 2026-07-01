@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>ScriptedStuff Blog</title>
+        <link>https://scriptedstuff.dev</link>
+        <description>DevOps, Cloud Infrastructure, and Software Engineering</description>
+        <lastBuildDate>Sun, 08 Feb 2026 10:15:29 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <image>
+            <title>ScriptedStuff Blog</title>
+            <url>https://scriptedstuff.dev/images/scriptedStuff.png</url>
+            <link>https://scriptedstuff.dev</link>
+        </image>
+        <copyright>All rights reserved 2026, David Sharrocks</copyright>
+        <item>
+            <title><![CDATA[How to Run Pi-hole in Docker on a Raspberry Pi (and Look Like a Tech Wizard)]]></title>
+            <link>https://scriptedstuff.dev/posts/pihole-docker-setup</link>
+            <guid isPermaLink="false">https://scriptedstuff.dev/posts/pihole-docker-setup</guid>
+            <pubDate>Sun, 18 May 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Turn your Raspberry Pi into an ad-blocking, containerized, DNS wizard. No cape required.]]></description>
+            <content:encoded><![CDATA[Turn your Raspberry Pi into an ad-blocking, containerized, DNS wizard. No cape required.
+
+Let’s be honest. You’re here because you’ve heard about Pi-hole — the magical little tool that blocks ads across your entire network — and you want it running on your Raspberry Pi without installing 12 dependencies and sacrificing a goat to the networking gods.]]></content:encoded>
+            <author>david@scriptedstuff.dev (David Sharrocks)</author>
+        </item>
+    </channel>
+</rss>

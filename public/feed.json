@@ -1,0 +1,26 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "ScriptedStuff Blog",
+    "home_page_url": "https://scriptedstuff.dev",
+    "feed_url": "https://scriptedstuff.dev/feed.json",
+    "description": "DevOps, Cloud Infrastructure, and Software Engineering",
+    "icon": "https://scriptedstuff.dev/images/scriptedStuff.png",
+    "author": {
+        "name": "David Sharrocks",
+        "url": "https://scriptedstuff.dev"
+    },
+    "items": [
+        {
+            "id": "https://scriptedstuff.dev/posts/pihole-docker-setup",
+            "content_html": "Turn your Raspberry Pi into an ad-blocking, containerized, DNS wizard. No cape required.\n\nLet’s be honest. You’re here because you’ve heard about Pi-hole — the magical little tool that blocks ads across your entire network — and you want it running on your Raspberry Pi without installing 12 dependencies and sacrificing a goat to the networking gods.",
+            "url": "https://scriptedstuff.dev/posts/pihole-docker-setup",
+            "title": "How to Run Pi-hole in Docker on a Raspberry Pi (and Look Like a Tech Wizard)",
+            "summary": "Turn your Raspberry Pi into an ad-blocking, containerized, DNS wizard. No cape required.",
+            "date_modified": "2025-05-18T00:00:00.000Z",
+            "author": {
+                "name": "David Sharrocks",
+                "url": "https://scriptedstuff.dev"
+            }
+        }
+    ]
+}

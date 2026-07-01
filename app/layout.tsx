@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./custom.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,7 +34,7 @@ export default function RootLayout({
           <div className="container mx-auto px-4 py-8">
             <div className="flex flex-col items-center gap-6">
               <Link href="/" className="flex flex-col items-center gap-3 hover:opacity-80 transition-opacity">
-                <img src="/images/scriptedStuff.png" alt="ScriptedStuff Logo" className="h-32 w-auto" />
+                <Image src="/images/scriptedStuff.png" alt="ScriptedStuff Logo" width={128} height={128} priority />
                 <span className="text-3xl font-bold text-white">ScriptedStuff</span>
               </Link>
               <nav className="flex space-x-8">
