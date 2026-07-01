@@ -1,13 +1,5 @@
-# Hugo output
-public/
-public-dev/
-resources/
-
-# Hugo build locks
-.hugo_build.lock
-
 # Node dependencies
-node_modules/
+blog-next/node_modules/
 package-lock.json
 
 # Next.js build output

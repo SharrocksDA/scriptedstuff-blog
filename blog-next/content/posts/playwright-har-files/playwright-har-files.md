@@ -99,7 +99,7 @@ Playwright will match requests by URL, HTTP method, and POST payloads. If multip
 
 ## Modifying HAR Files
 
-HAR files are stored as hashed `.txt` files inside your `hars/` folder. You can manually edit the JSON to change mock data:
+HAR files are stored as hashed `.har` json files inside your `hars/` folder. You can manually edit the JSON to change mock data:
 
 ```json
 [
