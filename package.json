@@ -1,7 +1,7 @@
 {
   "name": "scriptedstuff-blog",
   "version": "1.0.0",
-  "description": "Modern technical blog built with Next.js, TypeScript, and Docker",
+  "description": "Modern technical blog built with Next.js and TypeScript",
   "author": "David Sharrocks",
   "repository": {
     "type": "git",
@@ -13,8 +13,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "deploy": "./deploy.sh"
+    "lint": "eslint"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
