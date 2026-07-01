@@ -7,13 +7,6 @@ export default function Home() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <section className="mb-12">
-        <h1 className="text-4xl font-bold mb-4 text-white">Welcome to ScriptedStuff</h1>
-        <p className="text-xl text-gray-300">
-          A blog about scripting, automation, homelab projects, and tech wizardry.
-        </p>
-      </section>
-
       <section>
         <h2 className="text-3xl font-bold mb-6 text-white">Latest Posts</h2>
         <div className="space-y-8">

@@ -1,6 +1,8 @@
 ---
-title: "Welcome to ScriptedStuff"
-description: "A blog about automation, testing, and home server wizardry."
+title: "ScriptedStuff"
+description: | 
+    Practical guides on Playwright, automation and modern quality engineering.
+    Helping developers and QA engineers build faster, more reliable test automation.
 ---
 Welcome to **ScriptedStuff.dev**  
 I'm David, a test automation engineer and home server enthusiast.
