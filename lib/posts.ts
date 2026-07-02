@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
+const homePagePath = path.join(process.cwd(), 'content/_index.md');
 
 export interface PostMetadata {
   title: string;
@@ -15,6 +16,23 @@ export interface PostMetadata {
 
 export interface Post extends PostMetadata {
   content: string;
+}
+
+export interface HomePageMetadata {
+  title: string;
+  description: string;
+  content: string;
+}
+
+export function getHomePageMetadata(): HomePageMetadata {
+  const fileContents = fs.readFileSync(homePagePath, 'utf8');
+  const { data, content } = matter(fileContents);
+
+  return {
+    title: data.title || 'ScriptedStuff',
+    description: data.description || '',
+    content,
+  };
 }
 
 export function getAllPosts(): PostMetadata[] {
