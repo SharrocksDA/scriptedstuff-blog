@@ -24,8 +24,33 @@ export interface HomePageMetadata {
   content: string;
 }
 
-export function getHomePageMetadata(): HomePageMetadata {
-  const fileContents = fs.readFileSync(homePagePath, 'utf8');
+interface ContentOptions {
+  postsDirectory?: string;
+  homePagePath?: string;
+  nodeEnv?: string;
+}
+
+function getPostFilePath(directory: string, slug: string): string | null {
+  const fullPath = path.join(directory, slug);
+
+  if (!fs.existsSync(fullPath)) return null;
+
+  let filePath = path.join(fullPath, 'index.md');
+  if (!fs.existsSync(filePath)) {
+    filePath = path.join(fullPath, `${slug}.md`);
+  }
+
+  return fs.existsSync(filePath) ? filePath : null;
+}
+
+function getPostDate(date: unknown): string {
+  if (date instanceof Date) return date.toISOString().slice(0, 10);
+  if (typeof date === 'string') return date;
+  return new Date().toISOString();
+}
+
+export function getHomePageMetadata(options: Pick<ContentOptions, 'homePagePath'> = {}): HomePageMetadata {
+  const fileContents = fs.readFileSync(options.homePagePath || homePagePath, 'utf8');
   const { data, content } = matter(fileContents);
 
   return {
@@ -35,21 +60,18 @@ export function getHomePageMetadata(): HomePageMetadata {
   };
 }
 
-export function getAllPosts(): PostMetadata[] {
-  const postDirs = fs.readdirSync(postsDirectory);
+export function getAllPosts(options: Pick<ContentOptions, 'postsDirectory' | 'nodeEnv'> = {}): PostMetadata[] {
+  const directory = options.postsDirectory || postsDirectory;
+  const nodeEnv = options.nodeEnv || process.env.NODE_ENV;
+  const postDirs = fs.readdirSync(directory);
   
   const posts = postDirs
     .map((dir) => {
-      const fullPath = path.join(postsDirectory, dir);
+      const fullPath = path.join(directory, dir);
       if (!fs.statSync(fullPath).isDirectory()) return null;
       
-      // Look for index.md or the directory name.md
-      let filePath = path.join(fullPath, 'index.md');
-      if (!fs.existsSync(filePath)) {
-        filePath = path.join(fullPath, `${dir}.md`);
-      }
-      
-      if (!fs.existsSync(filePath)) return null;
+      const filePath = getPostFilePath(directory, dir);
+      if (!filePath) return null;
       
       const fileContents = fs.readFileSync(filePath, 'utf8');
       const { data } = matter(fileContents);
@@ -57,31 +79,22 @@ export function getAllPosts(): PostMetadata[] {
       return {
         slug: dir,
         title: data.title || dir,
-        date: data.date || new Date().toISOString(),
+        date: getPostDate(data.date),
         tags: data.tags || [],
         description: data.description || '',
         draft: data.draft || false,
       } as PostMetadata;
     })
     .filter((post): post is PostMetadata => post !== null)
-    .filter((post) => !post.draft || process.env.NODE_ENV === 'development')
+    .filter((post) => !post.draft || nodeEnv === 'development')
     .sort((a, b) => (new Date(b.date).getTime() - new Date(a.date).getTime()));
   
   return posts;
 }
 
-export function getPostBySlug(slug: string): Post | null {
-  const fullPath = path.join(postsDirectory, slug);
-  
-  if (!fs.existsSync(fullPath)) return null;
-  
-  // Look for index.md or the directory name.md
-  let filePath = path.join(fullPath, 'index.md');
-  if (!fs.existsSync(filePath)) {
-    filePath = path.join(fullPath, `${slug}.md`);
-  }
-  
-  if (!fs.existsSync(filePath)) return null;
+export function getPostBySlug(slug: string, options: Pick<ContentOptions, 'postsDirectory'> = {}): Post | null {
+  const filePath = getPostFilePath(options.postsDirectory || postsDirectory, slug);
+  if (!filePath) return null;
   
   const fileContents = fs.readFileSync(filePath, 'utf8');
   const { data, content } = matter(fileContents);
@@ -89,7 +102,7 @@ export function getPostBySlug(slug: string): Post | null {
   return {
     slug,
     title: data.title || slug,
-    date: data.date || new Date().toISOString(),
+    date: getPostDate(data.date),
     draft: data.draft || false,
     tags: data.tags || [],
     description: data.description || '',
